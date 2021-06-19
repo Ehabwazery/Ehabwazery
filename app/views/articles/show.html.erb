@@ -1,11 +1,8 @@
-<h1>Articles</h1>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <a href="/articles/<%= article.id %>">
-        <%= article.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<h1>Showing article details</h1>
+
+<p><strong>Title: </strong><%= @article.title %></p>
+<p><strong>Body: </strong><%= @article.body %></p>
+<%= link_to 'edit' , edit_article_path(@article) %> |
+<%= link_to 'delete' , article_path(@article),method: :delete%> |
+<%= link_to 'return To Articles listing' , articles_path %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
 root 'pages#home'
 #root "articles#index"
 get "/about", to: "pages#about"

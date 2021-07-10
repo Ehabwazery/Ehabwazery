@@ -17,7 +17,7 @@ before_action :find_article , only: [:show,:edit,:update,:destroy]
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+   
     @article.save
     if @article.save
       flash[:notice] = "Article was created successfully."
@@ -47,7 +47,7 @@ before_action :find_article , only: [:show,:edit,:update,:destroy]
   end
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :description)
   end
 
 end

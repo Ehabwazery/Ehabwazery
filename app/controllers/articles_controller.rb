@@ -17,7 +17,12 @@ before_action :find_article , only: [:show,:edit,:update,:destroy]
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.last
+    if session[:user_id]
+    @article.user = User.find(session[:user_id])
+    else
+      flash.now[:alert]= "You need to Sign up first to add a feedback"
+      render 'new' and return
+    end
     @article.save
     if @article.save
       flash[:notice] = "Article was created successfully."
